@@ -18,60 +18,26 @@ let circumference;
 
 let desiredLength;
 
-const sliderRange = 7;
-const steps = 100;
 const stringWeight = 1;
 const stringGap = 8;
-const stringSize = 0.7;
 
 let phase = 0;
 let wobble = 0;
 const wobbleInc = 0.018;
 const phaseInc = 0.0001;
 const zoffInc = 0.001;
-
-const paperWidth = 450;
-const paperHeight = 297;
-const sizeFactor = 3.7714285714;
 const circleNumber = 200;
 const fileName = `a set of ${circleNumber} uncertain circles`;
-let bg = [255, 255, 255];
 
 new p5((p5) => {
   p5.setup = () => {
-    // make an A3 page
-    // p5.createCanvas(800, 600, p5.SVG);
-    // p5.createCanvas(paperWidth * sizeFactor, paperHeight * sizeFactor);
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
-    // p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.SVG);
-    // console.log("getpos", p5.getItem("sliderPosition"));
-    // const sliderPos =
-    //   p5.getItem("sliderPosition") != undefined
-    //     ? p5.getItem("sliderPosition")
-    //     : p5.storeItem("sliderPosition", Math.floor(p5.random() * sliderRange));
-
-    // console.log("pos", sliderPos);
-    // slider = p5.createSlider(0, sliderRange, sliderPos, sliderRange / steps);
-    // slider.addClass("slider");
-
-    // slider.input(() => {
-    //   p5.clear();
-    //   p5.redraw();
-    //   p5.storeItem("sliderPosition", slider.value());
-    // });
-
-    // setInitialValues();
-
-    desiredLength = Math.min(p5.width, p5.height) * 2;
-
-    // p5.noLoop();
+    desiredLength = Math.min(p5.width, p5.height) * 2.4;
   };
   p5.draw = () => {
-    p5.clear();
-    p5.background(bg[0], bg[1], bg[2]);
+    p5.background(255);
     wobble = 0;
     for (let x = 0; x < circleNumber; x++) {
-      // phase = Math.random() * p5.TWO_PI;
       makeCircle(p5.width / 2, p5.height / 2, wobble, true);
       wobble += wobbleInc;
     }
@@ -81,13 +47,9 @@ new p5((p5) => {
 
   const makeCircle = (x, y, wobble, close = false) => {
     const gap = close ? 0 : stringGap;
-
     p5.push();
-    // p5.fill(p5.random(255), 0, 0);
-    // p5.rect(x, y, gridWidth, gridHeight);
     circumference = 0;
     let prevX, prevY;
-    // p5.translate(p5.width / 2, p5.height / 2 - 50);
     p5.stroke(0);
     p5.noFill();
     p5.strokeWeight((stringWeight * p5.width) / 1580);
@@ -118,15 +80,6 @@ new p5((p5) => {
         p5.width / 2
       );
 
-      //perlin
-      // let r = p5.map(
-      //   p5.noise(xoff, yoff, zoff),
-      //   0,
-      //   1,
-      //   p5.width / 4,
-      //   p5.width / 2
-      // );
-
       let x = r * p5.cos(a);
       let y = r * p5.sin(a);
 
@@ -146,16 +99,6 @@ new p5((p5) => {
     p5.pop();
   };
 
-  // p5.mousePressed = (event) => {
-  //   if (event.target.className === "slider") return;
-  //   animate = !animate;
-  //   if (animate) {
-  //     p5.loop();
-  //   } else {
-  //     p5.noLoop();
-  //   }
-  // };
-
   p5.windowResized = () => {
     reloadPage();
   };
@@ -163,33 +106,7 @@ new p5((p5) => {
   // trigger png save
   p5.mousePressed = () => {
     p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
-    bg = [p5.random(255), p5.random(255), p5.random(255)];
   };
-
-  // save svg
-  // function downloadSvg() {
-  //   let svgElement = document.getElementsByTagName("svg")[0];
-  //   let svg = svgElement.outerHTML;
-  //   let file = new Blob([svg], { type: "plain/text" });
-  //   let a = document.createElement("a"),
-  //     url = URL.createObjectURL(file);
-
-  //   a.href = url;
-  //   a.download = fileName + " #" + Date.now() + ".svg";
-  //   document.body.appendChild(a);
-  //   a.click();
-
-  //   setTimeout(function () {
-  //     document.body.removeChild(a);
-  //     window.URL.revokeObjectURL(url);
-  //   }, 0);
-  // }
-
-  //function setInitialValues() {
-  // desiredLength = Math.min(p5.width, p5.height) * p5.PI * stringSize;
-  // slider.position(10, p5.height - 30);
-  // slider.style("width", p5.width - 25 + "px");
-  //}
 });
 
 function debounce(func, wait, immediate) {
