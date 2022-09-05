@@ -59,7 +59,7 @@ new p5((p5) => {
     //   p5.storeItem("sliderPosition", slider.value());
     // });
 
-    setInitialValues();
+    // setInitialValues();
 
     desiredLength = Math.min(p5.width, p5.height) * 2;
 
@@ -67,6 +67,7 @@ new p5((p5) => {
   };
   p5.draw = () => {
     p5.clear();
+    p5.background(255);
     wobble = 0;
     for (let x = 0; x < circleNumber; x++) {
       // phase = Math.random() * p5.TWO_PI;
@@ -158,37 +159,38 @@ new p5((p5) => {
     reloadPage();
   };
 
-  // trigger svg save
+  // trigger png save
   p5.keyTyped = () => {
     if (p5.key === "s") {
-      downloadSvg();
+      // downloadSvg();
+      p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
     }
   };
 
   // save svg
-  function downloadSvg() {
-    let svgElement = document.getElementsByTagName("svg")[0];
-    let svg = svgElement.outerHTML;
-    let file = new Blob([svg], { type: "plain/text" });
-    let a = document.createElement("a"),
-      url = URL.createObjectURL(file);
+  // function downloadSvg() {
+  //   let svgElement = document.getElementsByTagName("svg")[0];
+  //   let svg = svgElement.outerHTML;
+  //   let file = new Blob([svg], { type: "plain/text" });
+  //   let a = document.createElement("a"),
+  //     url = URL.createObjectURL(file);
 
-    a.href = url;
-    a.download = fileName + " #" + Date.now() + ".svg";
-    document.body.appendChild(a);
-    a.click();
+  //   a.href = url;
+  //   a.download = fileName + " #" + Date.now() + ".svg";
+  //   document.body.appendChild(a);
+  //   a.click();
 
-    setTimeout(function () {
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, 0);
-  }
+  //   setTimeout(function () {
+  //     document.body.removeChild(a);
+  //     window.URL.revokeObjectURL(url);
+  //   }, 0);
+  // }
 
-  function setInitialValues() {
-    // desiredLength = Math.min(p5.width, p5.height) * p5.PI * stringSize;
-    // slider.position(10, p5.height - 30);
-    // slider.style("width", p5.width - 25 + "px");
-  }
+  //function setInitialValues() {
+  // desiredLength = Math.min(p5.width, p5.height) * p5.PI * stringSize;
+  // slider.position(10, p5.height - 30);
+  // slider.style("width", p5.width - 25 + "px");
+  //}
 });
 
 function debounce(func, wait, immediate) {
