@@ -161,7 +161,7 @@ new p5((p5) => {
   };
 
   // trigger png save
-  p5.mouseClicked = () => {
+  p5.mousePressed = () => {
     p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
     bg = [p5.random(255), p5.random(255), p5.random(255)];
   };
