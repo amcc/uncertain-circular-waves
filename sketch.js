@@ -160,11 +160,8 @@ new p5((p5) => {
   };
 
   // trigger png save
-  p5.keyTyped = () => {
-    if (p5.key === "s") {
-      // downloadSvg();
-      p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
-    }
+  p5.mouseClicked = () => {
+    p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
   };
 
   // save svg
