@@ -27,8 +27,8 @@ const stringSize = 0.7;
 let phase = 0;
 let wobble = 0;
 const wobbleInc = 0.018;
-const phaseInc = 0.01;
-const zoffInc = 0.05;
+const phaseInc = 0.0001;
+const zoffInc = 0.001;
 
 const paperWidth = 450;
 const paperHeight = 297;
@@ -40,8 +40,8 @@ new p5((p5) => {
   p5.setup = () => {
     // make an A3 page
     // p5.createCanvas(800, 600, p5.SVG);
-    p5.createCanvas(paperWidth * sizeFactor, paperHeight * sizeFactor, p5.SVG);
-    // p5.createCanvas(p5.windowWidth, p5.windowHeight);
+    // p5.createCanvas(paperWidth * sizeFactor, paperHeight * sizeFactor);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight);
     // p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.SVG);
     // console.log("getpos", p5.getItem("sliderPosition"));
     // const sliderPos =
@@ -63,13 +63,13 @@ new p5((p5) => {
 
     desiredLength = Math.min(p5.width, p5.height) * 2;
 
-    p5.noLoop();
+    // p5.noLoop();
   };
   p5.draw = () => {
     p5.clear();
     wobble = 0;
     for (let x = 0; x < circleNumber; x++) {
-      phase = Math.random() * p5.TWO_PI;
+      // phase = Math.random() * p5.TWO_PI;
       makeCircle(p5.width / 2, p5.height / 2, wobble, true);
       wobble += wobbleInc;
     }
@@ -104,8 +104,8 @@ new p5((p5) => {
       a < p5.TWO_PI + phase - p5.radians(gap);
       a += p5.radians(1)
     ) {
-      let xoff = p5.map(p5.cos(a), -1, 1, 0, noiseMax);
-      let yoff = p5.map(p5.sin(a), -1, 1, 0, noiseMax);
+      let xoff = p5.map(p5.cos(a + phase), -1, 1, 0, noiseMax);
+      let yoff = p5.map(p5.sin(a + phase), -1, 1, 0, noiseMax);
 
       //   simplex;
       let r = p5.map(
