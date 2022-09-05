@@ -35,6 +35,7 @@ const paperHeight = 297;
 const sizeFactor = 3.7714285714;
 const circleNumber = 200;
 const fileName = `a set of ${circleNumber} uncertain circles`;
+let bg = [255, 255, 255];
 
 new p5((p5) => {
   p5.setup = () => {
@@ -67,7 +68,7 @@ new p5((p5) => {
   };
   p5.draw = () => {
     p5.clear();
-    p5.background(255);
+    p5.background(bg[0], bg[1], bg[2]);
     wobble = 0;
     for (let x = 0; x < circleNumber; x++) {
       // phase = Math.random() * p5.TWO_PI;
@@ -162,6 +163,7 @@ new p5((p5) => {
   // trigger png save
   p5.mouseClicked = () => {
     p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
+    bg = [p5.random(255), p5.random(255), p5.random(255)];
   };
 
   // save svg
