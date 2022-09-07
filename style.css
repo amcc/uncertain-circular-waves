@@ -12,6 +12,7 @@ canvas {
 button {
   font-family: "IBM Plex Mono", monospace;
   font-size: 100%;
+  color: #000;
 }
 .show {
   right: 0;
