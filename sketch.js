@@ -32,7 +32,9 @@ const fileName = `a set of ${circleNumber} uncertain circles`;
 // info and download buttons
 let closeButton;
 let downloadButton;
+let initialDownloadButtonHtml;
 let infoHtml;
+let initialInfoButtonHtml;
 let hideInfoHtml = true;
 
 new p5((p5) => {
@@ -43,7 +45,11 @@ new p5((p5) => {
     // info buttons
     infoHtml = p5.select("#info-inner");
     closeButton = p5.select("#close-button");
+    initialInfoButtonHtml = closeButton.html();
+    console.log("initialDownloadHtml", initialInfoButtonHtml);
+
     downloadButton = p5.select("#download");
+    initialDownloadButtonHtml = downloadButton.html();
 
     document.getElementById("download").addEventListener("click", saveImage);
   };
@@ -125,7 +131,7 @@ new p5((p5) => {
   };
 
   const resetDownloadText = debounce(function () {
-    downloadButton.html("Download image");
+    downloadButton.html(initialDownloadHtml);
   }, 1000);
 });
 
@@ -156,7 +162,7 @@ const hideInfo = () => {
     closeButton.html("X close");
   } else {
     infoHtml.addClass("hidden");
-    closeButton.html("info");
+    closeButton.html(initialInfoButtonHtml);
   }
   hideInfoHtml = !hideInfoHtml;
 };

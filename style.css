@@ -53,6 +53,7 @@ button {
   background: transparent;
   border: 2px solid transparent;
   padding: 5px 0;
+  text-decoration: underline;
 }
 #download {
   background: yellow;
