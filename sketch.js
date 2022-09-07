@@ -29,10 +29,23 @@ const zoffInc = 0.001;
 const circleNumber = 200;
 const fileName = `a set of ${circleNumber} uncertain circles`;
 
+// info and download buttons
+let closeButton;
+let downloadButton;
+let infoHtml;
+let hideInfoHtml = true;
+
 new p5((p5) => {
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
     desiredLength = Math.min(p5.width, p5.height) * 2.4;
+
+    // info buttons
+    infoHtml = p5.select("#info-inner");
+    closeButton = p5.select("#close-button");
+    downloadButton = p5.select("#download");
+
+    document.getElementById("download").addEventListener("click", saveImage);
   };
   p5.draw = () => {
     p5.background(255);
@@ -104,9 +117,16 @@ new p5((p5) => {
   };
 
   // trigger png save
-  p5.mousePressed = () => {
+  const saveImage = () => {
+    console.log("creating an image for you");
     p5.saveCanvas(`${fileName} #${Date.now()}`, "png");
+    downloadButton.html("Downloading...");
+    resetDownloadText();
   };
+
+  const resetDownloadText = debounce(function () {
+    downloadButton.html("Download image");
+  }, 1000);
 });
 
 function debounce(func, wait, immediate) {
@@ -128,3 +148,18 @@ function debounce(func, wait, immediate) {
 const reloadPage = debounce(function () {
   location.reload();
 }, 250);
+
+const hideInfo = () => {
+  console.log("hi");
+  if (hideInfoHtml) {
+    infoHtml.removeClass("hidden");
+    closeButton.html("X close");
+  } else {
+    infoHtml.addClass("hidden");
+    closeButton.html("info");
+  }
+  hideInfoHtml = !hideInfoHtml;
+};
+
+// html stuff
+document.getElementById("close-button").addEventListener("click", hideInfo);
