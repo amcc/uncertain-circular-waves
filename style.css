@@ -55,12 +55,14 @@ button {
   border: 2px solid transparent;
   padding: 5px 0;
   text-decoration: underline;
+  color: black;
 }
 #download {
   background: yellow;
   border: 2px solid transparent;
   padding: 5px;
   margin-bottom: 5px;
+  color: black;
 }
 
 #close-button:focus,
