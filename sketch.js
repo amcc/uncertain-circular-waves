@@ -159,7 +159,7 @@ const hideInfo = () => {
   console.log("hi");
   if (hideInfoHtml) {
     infoHtml.removeClass("hidden");
-    closeButton.html("X close");
+    closeButton.html("&darr; close");
   } else {
     infoHtml.addClass("hidden");
     closeButton.html(initialInfoButtonHtml);

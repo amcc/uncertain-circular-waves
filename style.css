@@ -46,8 +46,11 @@ button {
     max-width: 50vw;
   }
 }
-#info a {
+#about,
+#about a {
+  font-style: italic;
   color: black;
+  /* font-size: 80%; */
 }
 
 #close-button {
@@ -58,11 +61,11 @@ button {
   color: black;
 }
 #download {
-  background: yellow;
+  background: black;
+  color: white;
   border: 2px solid transparent;
   padding: 5px;
   margin-bottom: 5px;
-  color: black;
 }
 
 #close-button:focus,
