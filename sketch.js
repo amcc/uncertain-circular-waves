@@ -27,7 +27,7 @@ const wobbleInc = 0.018;
 const phaseInc = 0.0001;
 const zoffInc = 0.001;
 const circleNumber = 200;
-const fileName = `a set of ${circleNumber} uncertain circles`;
+const fileName = `Standard strings`;
 
 // info and download buttons
 let closeButton;
