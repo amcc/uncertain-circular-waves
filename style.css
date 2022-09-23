@@ -2,9 +2,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 400;
-  font-style: italic;
+  /* font-style: italic; */
   font-size: 100%;
 }
 canvas {
@@ -12,10 +12,10 @@ canvas {
 }
 
 button {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 100%;
   color: #000;
-  font-style: italic;
+  /* font-style: italic; */
 }
 .show {
   right: 0;
@@ -50,7 +50,7 @@ button {
 }
 #about,
 #about a {
-  font-style: italic;
+  /* font-style: italic; */
   color: black;
   /* font-size: 80%; */
 }
