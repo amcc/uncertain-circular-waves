@@ -29,7 +29,7 @@ const zoffInc = 0.001;
 const circleNumber = 200;
 const fileName = `Standard strings`;
 
-// info and download buttons
+// info and download buttons for the html
 let closeButton;
 let downloadButton;
 let initialDownloadButtonHtml;
