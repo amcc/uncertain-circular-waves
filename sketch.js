@@ -40,6 +40,7 @@ let hideInfoHtml = true;
 new p5((p5) => {
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
+    p5.pixelDensity(1);
     desiredLength = Math.min(p5.width, p5.height) * 2.4;
 
     // info buttons
