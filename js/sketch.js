@@ -14,7 +14,7 @@ let wobble = 0;
 const wobbleInc = 0.019;
 const phaseInc = 0.0001;
 const zoffInc = 0.0006;
-const circleNumber = 150;
+const circleNumber = 200;
 
 let circleGroup;
 
@@ -56,14 +56,14 @@ window.onload = function () {
   circleGroup = new paper.Group();
   circleGroup.applyMatrix = false;
 
-  // text = new PointText(new Point(200, 50));
-  // text.justification = "center";
-  // text.fillColor = "black";
-  // text.content = "framerate";
+  text = new PointText(new Point(200, 50));
+  text.justification = "center";
+  text.fillColor = "black";
+  text.content = "framerate";
 
   view.onFrame = function (event) {
     if (event.count % 2 === 0) {
-      // text.content = "framerate = " + Math.floor(1 / (event.time - prevTime));
+      text.content = "framerate = " + Math.floor(1 / (event.time - prevTime));
       prevTime = event.time;
 
       circleGroup.removeChildren();
