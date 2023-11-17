@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-      rel="stylesheet"
+    <title>Standard Strings</title>
+    <meta
+      name="description"
+      content="An artwork by Alistair McClymont, see more at alistairmcclymont.com"
+    />
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta
+      name="viewport"
+      content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
     />
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script src="p5.min.js"></script>
+    <script src="p5.svg.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,25 +24,16 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script
       defer
       data-domain="standardstrings.alistairmcclymont.com"
       src="https://plausible.io/js/plausible.js"
     ></script>
-
-    <!-- Load the Paper.js library -->
-    <script type="text/javascript" src="js/paper.js"></script>
-    <!-- Load external PaperScript and associate it with myCanvas -->
-    <script
-      type="module"
-      src="js/sketch.js"
-      canvas="myCanvas"
-      hidpi="on"
-    ></script>
   </head>
+
   <body>
-    <canvas id="myCanvas" resize></canvas>
-    <div class="container"></div>
+    <main></main>
     <div id="info">
       <button id="close-button">Standard Strings</button>
       <div id="info-inner" class="hidden">
@@ -46,5 +46,7 @@
         </div>
       </div>
     </div>
+
+    <script type="module" src="sketch.js"></script>
   </body>
 </html>

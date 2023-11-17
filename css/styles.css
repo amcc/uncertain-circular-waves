@@ -1,0 +1,88 @@
+html {
+  /* cursor: none; */
+}
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 100%;
+  color: #000;
+  /* font-style: italic; */
+}
+.show {
+  right: 0;
+}
+
+.hide {
+  right: 100vw;
+}
+
+#info {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 1rem 0 1rem;
+  z-index: 200;
+  /*   background-color: rgba(255,255,255,0.6); */
+  max-width: 100vw;
+}
+
+#info-inner {
+  padding-bottom: 1rem;
+}
+
+@media only screen and (min-width: 400px) {
+  body {
+    font-size: 0.8rem;
+  }
+  #info {
+    /*     padding: 2rem; */
+    max-width: 50vw;
+  }
+}
+#about,
+#about a {
+  /* font-style: italic; */
+  color: black;
+  /* font-size: 80%; */
+}
+
+#close-button {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 5px 0;
+  text-decoration: underline;
+  color: black;
+}
+#download {
+  background: black;
+  color: white;
+  border: 2px solid transparent;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#close-button:focus,
+#download:focus {
+  outline: none;
+  /* border-bottom: 2px solid magenta; */
+}
+#download.active,
+#download.active:focus {
+  background: cyan;
+}
+.hidden {
+  display: none;
+}
