@@ -51,19 +51,27 @@ window.onload = function () {
   width = paper.view.size.width;
   height = paper.view.size.height;
 
+  let rect = new Path.Rectangle({
+    point: [0, 0],
+    size: [width, height],
+    strokeColor: "white",
+  });
+  rect.sendToBack();
+  rect.fillColor = "#ffffff";
+
   desiredLength = Math.min(width, height) * 2.2;
 
   circleGroup = new paper.Group();
   circleGroup.applyMatrix = false;
 
-  text = new PointText(new Point(200, 50));
-  text.justification = "center";
-  text.fillColor = "black";
-  text.content = "framerate";
+  // text = new PointText(new Point(200, 50));
+  // text.justification = "center";
+  // text.fillColor = "black";
+  // text.content = "framerate";
 
   view.onFrame = function (event) {
     if (event.count % 2 === 0) {
-      text.content = "framerate = " + Math.floor(1 / (event.time - prevTime));
+      // text.content = "framerate = " + Math.floor(1 / (event.time - prevTime));
       prevTime = event.time;
 
       circleGroup.removeChildren();
